@@ -5,3 +5,6 @@
 4.可以用做一个浏览器的方式，将浏览器指定一个网址来做一个客户端，此网页需要兼容手机布局.;
 5.  #txt { cursor: pointer }
     #txt { cursor: not-allowed }鼠标移动上去时的样式设置上为小手，下为禁用图标;
+6.sqlserver中创建数据表主键的自增用identity(1,1),create table user(
+id int primary key identity(1,1)
+); drop table dbo.user删除这个表;
