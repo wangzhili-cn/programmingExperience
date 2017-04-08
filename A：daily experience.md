@@ -8,4 +8,5 @@
    #txt { cursor: not-allowed }鼠标移动上去时的样式设置上为小手，下为禁用图标;  
 6. qlserver中创建数据表主键的自增用identity(1,1),create table user(  
    id int primary key identity(1,1)  
-   ); drop table dbo.user删除这个表;
+   ); drop table dbo.user删除这个表;  
+7. continue跳出本次循环进入下一次循环，break跳出循环且不进入下一次循环，return跳出方法。;
