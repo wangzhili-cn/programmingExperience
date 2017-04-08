@@ -1,8 +1,8 @@
 ---
 随机去重数组
 ---  
-```  
-  <script type="text/javascript">
+```javascript
+  <script type="text/javascript">
   window.onload = function () {
             //随机生成九个不重复的数，组成数组。
             var randarr = new Array();
