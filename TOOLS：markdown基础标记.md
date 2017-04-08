@@ -28,3 +28,5 @@ tianjiaxinhangbiaoti
 ```
 duohangdaimagaoliang  
 ```
+> 贴入代码时，提供语法高亮。  
+  在“\`\`\`”后面添加代码语言名称，如：\`\`\`javascript
