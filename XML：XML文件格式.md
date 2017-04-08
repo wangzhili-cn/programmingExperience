@@ -2,6 +2,7 @@
 XML文件基本格式
 ---
 > xml文件仅有一个根节点的树型结构
+> xml文件常用做配置文件配置参数
 ```XML
 <?xml version="1.0" encoding="utf-8" ?>
 <!--<?xml-stylesheet type="text/css" href="CD_CSS.css"?>-->
