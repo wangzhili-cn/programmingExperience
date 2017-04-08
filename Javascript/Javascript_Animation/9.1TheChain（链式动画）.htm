@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>链式动画，运动完成后立即进行下一个运动</title>
+    <link href="../../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/common.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #divOpacity { background: green; filter: alpha(opacity:30); opacity: 0.3; }
+    </style>
+    <script type="text/javascript">
+        /*鼠标移入透明度100，鼠标移除透明度30*/
+        window.onload = function () {
+            var oDiv = document.getElementById("divOpacity");
+            oDiv.onmouseover = function () {
+                startMove(oDiv, 'opacity', 100, function () {
+                    startMove(oDiv, 'width', 500, function () {
+                        startMove(oDiv, 'height', 500);
+                    });
+                });
+            }
+            oDiv.onm = function () {
+                startMove(oDiv, 'height', 200, function () {
+                    startMove(oDiv, 'width', 200, function () {
+                        startMove(oDiv, 'opacity', 30);
+                    });
+                });
+            }
+        }
+        var timer = null;
+        var alpha = 30;
+        function startMove(obj, attr, iTarget, fn) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var icur = 0;
+                if (attr == 'opacity') {
+                    icur = parseFloat(getStyle(obj, attr)) * 100;
+                } else {
+                    var icur = parseInt(getStyle(obj, attr));
+                }
+
+                var speed = (iTarget - icur) / 8;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if (iTarget == icur) {
+                    clearInterval(obj.timer);
+                    if (fn) {
+                        fn();
+                    }
+                } else {
+                    //    obj.style.width = icur + speed + 'px';
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (icur + speed) + ')';
+                        obj.style.opacity = (icur + speed) / 100;
+                    } else {
+                        obj.style[attr] = icur + speed + 'px';
+                    }
+                }
+            })
+        }
+        function getStyle(obj, attr) {
+            //offsetWidth适用于没有border的情况，这里的currentStyle和getComputeStyle适用于正确需要获取样式的情况
+            if (obj.currentStyle) {  //currentStyle针对IE浏览器
+                obj.currentStyle[attr];
+            } else {
+                return getComputedStyle(obj, false)[attr];  //getComputedStyle针对火狐浏览器
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="divOpacity" class="size_200 border">
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>获取样式初步</title>
+    <link href="../../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/common.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #div1 { height: 200px; background-color: #0081cc; border: 1px solid black; }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            startMove();
+        }
+        function startMove() {
+            setInterval(function () {
+                var oDiv = document.getElementById("div1");
+                //alert(oDiv.offsetWidth);-1 201
+                //alert(oDiv.offsetWidth);- 202
+
+                //oDiv.style.width = oDiv.offsetWidth - 1 + "px";
+
+                //如果采用行内样式，在内部样式表中添加border后不会出现这个情况
+
+                oDiv.style.width = parseInt(getStyle(oDiv, 'width')) - 1 + 'px';
+            }, 30)
+        }
+        function getStyle(obj, attr) {
+            //offsetWidth适用于没有border的情况，这里的currentStyle和getComputeStyle适用于正确需要获取样式的情况
+            if (obj.currentStyle) {  //currentStyle针对IE浏览器
+                obj.currentStyle[attr];
+            } else {
+                return getComputedStyle(obj, false)[attr];  //getComputedStyle针对火狐浏览器
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1" style="width: 200px;">
+    </div>
+</body>
+</html>

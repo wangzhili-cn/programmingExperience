@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>定时器以及方法封装的理解</title>
+    <link href="../../css/common.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #divLeft { width: 200px; height: 200px; background: red; position: relative; left: -200px; top: 50px; }
+        #divLeft span { width: 20px; height: 50px; background: blue; position: absolute; left: 200px; top: 75px; }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            //            alert(Math.floor(3.4));
+            //            alert(Math.ceil(3.89));
+            //            var divLeft = document.getElementsByTagName('divLeft');
+            //            for (var i = 0; i < divLeft.length + 1; i++) {
+            //            }
+            var divLeft = document.getElementById("divLeft");
+            divLeft.onmouseover = function () {
+                MoveOptimize(0);
+            }
+            divLeft.onmouseout = function () {
+                MoveOptimize(-200);
+            }
+        }
+        //全局定时器
+        var timer = null;
+        /*封装方法在优化，减少一个参数*/
+        function MoveOptimize(iTarget) {
+            //触发清除定时器
+            clearInterval(timer);
+            var divLeft = document.getElementById("divLeft");
+            timer = setInterval(function () {
+
+                //优化参数速度值的处理
+                var speed = (iTarget - divLeft.offsetLeft) / 20;
+                //去整处理
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                //往右移动到最头暂停
+                if (divLeft.offsetLeft == iTarget) {
+                    clearInterval(timer);
+                } else {
+                    divLeft.style.left = divLeft.offsetLeft + speed + 'px';
+                }
+            }, 30)
+        }
+    </script>
+</head>
+<body>
+    <div id="divLeft">
+        <span>分享</span>
+    </div>
+</body>
+</html>

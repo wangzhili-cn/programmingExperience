@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>透明度以及浏览器兼容</title>
+    <link href="../../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/common.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #divOpacity { background: green; filter: alpha(opacity:30); opacity: 0.3; }
+        <!--透明度属性兼容IE火狐-->
+    </style>
+    <script type="text/javascript">
+        /*鼠标移入透明度100，鼠标移除透明度30*/
+        window.onload = function () {
+            var oDiv = document.getElementById("divOpacity");
+            oDiv.onmouseover = function () {
+                startMove(100);
+            }
+            oDiv.onmouseout = function () {
+                startMove(30);
+            }
+        }
+        /*处理函数*/
+        var timer = null;
+        var alpha = 30;
+        function startMove(iTarget) {
+            var oDiv = document.getElementById("divOpacity");
+            clearInterval(timer);
+            timer = setInterval(function () {
+                var speed = 0;
+                if (alpha > iTarget) {
+                    speed = -10;
+                } else {
+                    speed = 10;
+                }
+                if (alpha == iTarget) {
+                    clearInterval(timer);
+                } else {
+                    alpha += speed;
+                    oDiv.style.filter = 'alpha(opacity:' + alpha + ')';
+                    oDiv.style.opacity = alpha / 100;
+                }
+            }, 30)
+        }
+    </script>
+</head>
+<body>
+    <div id="divOpacity" class="size_200 border">
+    </div>
+</body>
+</html>
