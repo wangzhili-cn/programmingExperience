@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            //下拉菜单
+            $(".home .box .homeitem").bind("click", homeClickEffect);
+            //菜单点击效果
+            $("#phone_img").bind("click", drop);
+            $(".home .dropdown .title a").bind("click", dropClick);
+            //退出
+            $("#lnkExit").bind("click", exitPage);
+            //菜单显示效果
+            pageLoadTopWidth();
+            //初次绑定菜单    
+            bindMenuTerm();
+            //页面加载菜单底部样式
+            loadMenuImg();
+            //下拉菜单
+            bindDropDownMenu();
+        });
+        /*
+        绑定下拉菜单
+        */
+        function bindDropDownMenu() {
+            $("body").click(function () {
+                if ($("#divDropDownMenu").is(":visible")) {
+                    $("#divDropDownMenu").hide();
+                }
+            });
+            $("#divDropDownButton").click(function (e) {
+                $("#divDropDownMenu").show();
+                e.stopPropagation();
+            });
+            $("#lnkChangePassword").click(function () {
+                alert("密码设置");
+            });
+            $("#lnkThemeLight").click(function () {
+                alert("黑色皮肤");
+                //                $.cookie("theme", "light", { expires: 9999, path: '/' });
+                //                location.reload();
+            });
+            $("#lnkThemeDark").click(function () {
+                alert("白色皮肤");
+                //                $.cookie("theme", "dark", { expires: 9999, path: '/' });
+                //                location.reload();
+            });
+        }
+        //菜单显示效果
+        function pageLoadTopWidth() {
+            $(window).resize(function () {
+                var htmlbody = $("body").width();
+                if (htmlbody < 1100) {
+                    $(".box").hide();
+                    $(".character").hide();
+                    $(".phone").show();
+                }
+                else {
+                    $(".box").show();
+                    $(".character").show();
+                    $(".phone").hide();
+                    $(".dropdown").hide();
+                    //                    var menuValue = $.cookie("menu_value");
+                    //                    $(".home .box .homeitem .butimg").hide();
+                    //                    $(".homeitem[values=" + menuValue + "]").find(".butimg").show();
+                }
+                var menuValue = $("#menu_value").text();
+                $(".home .box .homeitem .butimg").hide();
+                $(".homeitem[values=" + menuValue + "]").find(".butimg").show();
+            });
+            var htmlbody = $("body").width();
+            if (htmlbody < 1100) {
+                $(".box").hide();
+                $(".character").hide();
+                $(".phone").show();
+            }
+            else {
+                $(".box").show();
+                $(".character").show();
+                $(".phone").hide();
+                $(".dropdown").hide();
+            }
+            setIframeSize();
+            $(window).resize(function () {
+                setIframeSize();
+            });
+        }
+        /*
+        设置iframe大小
+        */
+        function setIframeSize() {
+            $("#iframepage").css("height", $(window).height() - 60);
+        }
+        //菜单点击效果
+        function homeClickEffect() {
+            $(".home .box .homeitem .butimg").hide();
+            $(this).find(".butimg").show();
+            var htmlUrl = $(this).find("a").attr("name");
+            var urlValue = $(this).find("a").attr("values");
+            $("#menu_value").text(urlValue);
+        }
+        //下拉菜单效果
+        function drop() {
+            $(".dropdown").slideToggle("slow");
+        }
+        //下拉点击事件
+        function dropClick() {
+            var htmlUrl = $(this).attr("name");
+            var urlValue = $(this).attr("values");
+            $(".home .dropdown").hide();
+            $("#menu_value").text(urlValue);
+        }
+        //绑定菜单项
+        function bindMenuTerm() {
+            if ($("#menu_value").text() == null || $("#menu_value").text() == "") {
+                $("#menu_value").text(1);
+            }
+        }
+        //页面加载菜单底部样式
+        function loadMenuImg() {
+            var menuValue = $("#menu_value").text();
+            //alert(menuValue);
+            var htmlUrl = $("a[values=" + menuValue + "]").attr("name");
+            $(".home .box .homeitem .butimg").hide();
+            $(".homeitem[values=" + menuValue + "]").find(".butimg").show();
+            $("#iframepage").attr("src", htmlUrl);
+        }
+        //退出
+        function exitPage() {
+            alert("点击退出");
+        }
+        /*
+        收缩按钮
+        */
+        //        $(function () {
+        //            $("#lnkToggleSiderBar").click(function () {
+        //                document.getElementById("iframepage").contentWindow.toggleSiderBar();
+        //            });
+        //        });
+    </script>
+</head>
+<body>
+    <label class="display_note" id="menu_value">
+        1</label>
+    <div class="page">
+        <div class="home">
+            <div class="log">
+                <img src="img/logo.png" /><span class="name">数据采集与交换系统</span>
+            </div>
+            <div class="box">
+                <div class="homeitem" values="1">
+                    <div class="case">
+                        <a href="demo.htm" values="1" target="iframepage" name="demo.htm">
+                            <img src="img/nav_index.png" class="img_marginleft" /><span class="title ">首页</span></a></div>
+                    <div class="butimg" style="display: block">
+                        <img src="img/on.png" /></div>
+                </div>
+                <div class="homeitem" values="2">
+                    <div class="case">
+                        <a href="demo.htm" values="2" target="iframepage" name="demo.htm">
+                            <img src="img/nav_detection.png" /><span class="title">数据检测</span></a></div>
+                    <div class="butimg">
+                        <img src="img/on.png" /></div>
+                </div>
+                <div class="homeitem" values="3" name="123">
+                    <div class="case">
+                        <a href="demo.htm" values="3" target="iframepage" name="demo.htm">
+                            <img src="img/nav_resources.png" /><span class="title">资源检测</span></a></div>
+                    <div class="butimg">
+                        <img src="img/on.png" /></div>
+                </div>
+                <div class="homeitem" values="4">
+                    <div class="case">
+                        <a href="demo.htm" values="4" target="iframepage" name="demo.htm">
+                            <img src="img/nav_admin.png" /><span class="title">后台管理</span></a></div>
+                    <div class="butimg">
+                        <img src="img/on.png" /></div>
+                </div>
+            </div>
+            <div class="character">
+                <div class="left">
+                    <img src="img/headimg.png" /></div>
+                <div class="right">
+                    <div class="name">
+                        某某某</div>
+                    <div class="occupation">
+                        数据师</div>
+                </div>
+                <div id="divDropDownButton" class="down_down_button">
+                </div>
+                <div class="right_ei">
+                    <a href="#" id="lnkExit">
+                        <img src="img/exit.png" /></a></div>
+            </div>
+            <div class="phone">
+                <img src="img/home.png" id="phone_img" />
+            </div>
+            <div class="dropdown">
+                <span class="title"><a href="#" values="1" target="iframepage">首页</a></span> <span
+                    class="title"><a href="#" values="2" target="iframepage">数据检测</a></span><span class="title"><a
+                        href="#" values="3" target="iframepage">资源检测</a></span><span class="title"><a values="4"
+                            href="#" target="iframepage">后台管理</a></span>
+            </div>
+            <div id="divDropDownMenu" class="drop_down_menu">
+                <div class="drop_down_menu_head">
+                </div>
+                <div class="drop_down_menu_body">
+                    <div class="line_40">
+                        <a class="drop_down_menu_item change_theme" href="javascript:void(0)" id="lnkTheme">
+                            皮肤切换</a>
+                    </div>
+                    <div class="line_40">
+                        <a class="drop_down_menu_item theme_light" href="javascript:void(0)" id="lnkThemeLight">
+                            浅色系</a>
+                    </div>
+                    <div class="line_40">
+                        <a class="drop_down_menu_item theme_dark" href="javascript:void(0)" id="lnkThemeDark">
+                            深色系</a>
+                    </div>
+                    <div class="line_40">
+                        <a class="drop_down_menu_item change_password" href="javascript:void(0)" id="lnkChangePassword">
+                            密码设置</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ChildPages">
+            <iframe id="iframepage" name="iframepage" width="100%" height="1600px" scrolling="auto"
+                frameborder="0" src="demo.htm"></iframe>
+        </div>
+    </div>
+</body>
+</html>

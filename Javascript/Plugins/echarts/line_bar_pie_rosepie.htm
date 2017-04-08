@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../js/jquery/jquery.js" type="text/javascript"></script>
+    <script src="configuration/echarts.js" type="text/javascript"></script>
+    <style type="text/css">
+        .fund_chart { width: 50%; height: 400px; float: left; }
+        .border { border: 1px solid black; }
+    </style>
+    <script type="text/javascript">
+        //饼图/南丁格尔图数据全局定义
+        var pieData;
+        //折线图以及柱状图数据全局定义
+        var lineData;
+        //基金饼图盒子全局定义
+        var fundPie;
+        //南丁格尔图盒子全局定义
+        var fundRosePie;
+        //折线图盒子全局定义
+        var fundLine;
+        //柱状图盒子全局定义
+        var fundBar;
+        $(function () {
+            bindData();
+        });
+        /*
+        绑定数据
+        */
+        function bindData() {
+            //基金总额饼图
+            bindFundPieData();
+            //基金总额折线图以及柱状图
+            bindFundBarData();
+        }
+        /*
+        基金总额饼图
+        */
+        function bindFundPieData() {
+            //        var data = new Object();
+            //        call("GetFundPieList", data, function (result) {
+            //            //console.log(JSON.stringify(result.data));
+            //            //全部数据列表
+            //            pieData = result.data;
+            //            //初始化echarts实例 饼图部分
+            //            fundPie = echarts.init(document.getElementById('fund_chart_pie'));
+            //            fundPie.showLoading();
+            //            bindFundPie();
+            //            fundPie.hideLoading();
+            //            //玫瑰图部分
+            //            fundRosePie = echarts.init(document.getElementById('fund_chart_rosepie'));
+            //            fundRosePie.showLoading();
+            //            bindFundRosePieData();
+            //            fundRosePie.hideLoading();
+            //        });
+            //全部数据列表
+            pieData = [{ "ID": 1, "Month": "2016-12-02T00:00:00", "TypeName": "消防", "TotalAmount": 7869869.02, "TotalQuantity": 400, "TotalAmountRate": 20, "EmergencyQuantity": 5, "Amount": 7706031.06, "AmountRate": 20, "EmergencyQuantityRate": 5 }, { "ID": 4, "Month": "2016-12-02T00:00:00", "TypeName": "防水", "TotalAmount": 1039644.16, "TotalQuantity": 335, "TotalAmountRate": 39, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 5, "Month": "2016-12-02T00:00:00", "TypeName": "电梯", "TotalAmount": 423456.52, "TotalQuantity": 300, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 6, "Month": "2016-12-02T00:00:00", "TypeName": "安防", "TotalAmount": 985456.52, "TotalQuantity": 250, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 7, "Month": "2016-12-02T00:00:00", "TypeName": "管道", "TotalAmount": 856256.52, "TotalQuantity": 100, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 8, "Month": "2016-12-02T00:00:00", "TypeName": "供水", "TotalAmount": 4567891.12, "TotalQuantity": 350, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 9, "Month": "2016-12-02T00:00:00", "TypeName": "外墙", "TotalAmount": 556256.52, "TotalQuantity": 380, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 10, "Month": "2016-12-02T00:00:00", "TypeName": "路面", "TotalAmount": 4412891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 11, "Month": "2016-12-02T00:00:00", "TypeName": "其它", "TotalAmount": 3212891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null}];
+            //初始化echarts实例 饼图部分
+            fundPie = echarts.init(document.getElementById('fund_chart_pie'));
+            fundPie.showLoading();
+            bindFundPie();
+            fundPie.hideLoading();
+            //玫瑰图部分
+            fundRosePie = echarts.init(document.getElementById('fund_chart_rosepie'));
+            fundRosePie.showLoading();
+            bindFundRosePieData();
+            fundRosePie.hideLoading();
+
+        }
+        /*
+        基金总额折线图以及柱状图
+        */
+        function bindFundBarData() {
+            //            var data = new Object();
+            //            call("GetFundLineList", data, function (result) {
+            //                console.log(JSON.stringify(result.data));
+            //                //全部数据列表
+            //                lineData = result.data;
+            //                //初始化echarts实例 折线图部分
+            //                fundLine = echarts.init(document.getElementById('fund_chart_line'));
+            //                fundLine.showLoading();
+            //                bindFundLine();
+            //                fundLine.hideLoading();
+            //                //柱状图部分
+            //                fundBar = echarts.init(document.getElementById('fund_chart_bar'));
+            //                fundBar.showLoading();
+            //                bindFundBar();
+            //                fundBar.hideLoading();
+            //            });
+            lineData = [{ "ID": 48, "Month": "2016-07-02T00:00:00", "TypeName": "消防", "TotalAmount": 7869869.02, "TotalQuantity": 478, "TotalAmountRate": 20, "EmergencyQuantity": 5, "Amount": 7706031.06, "AmountRate": 20, "EmergencyQuantityRate": 5 }, { "ID": 49, "Month": "2016-07-02T00:00:00", "TypeName": "防水", "TotalAmount": 1039644.16, "TotalQuantity": 412, "TotalAmountRate": 39, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 50, "Month": "2016-07-02T00:00:00", "TypeName": "电梯", "TotalAmount": 423456.52, "TotalQuantity": 320, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 51, "Month": "2016-07-02T00:00:00", "TypeName": "安防", "TotalAmount": 985456.52, "TotalQuantity": 123, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 52, "Month": "2016-07-02T00:00:00", "TypeName": "管道", "TotalAmount": 856256.52, "TotalQuantity": 325, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 53, "Month": "2016-07-02T00:00:00", "TypeName": "供水", "TotalAmount": 4567891.12, "TotalQuantity": 210, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 54, "Month": "2016-07-02T00:00:00", "TypeName": "外墙", "TotalAmount": 556256.52, "TotalQuantity": 410, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 55, "Month": "2016-07-02T00:00:00", "TypeName": "路面", "TotalAmount": 4412891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 56, "Month": "2016-07-02T00:00:00", "TypeName": "其它", "TotalAmount": 3212891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 39, "Month": "2016-08-02T00:00:00", "TypeName": "其它", "TotalAmount": 1212891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 40, "Month": "2016-08-02T00:00:00", "TypeName": "消防", "TotalAmount": 8769869.02, "TotalQuantity": 320, "TotalAmountRate": 20, "EmergencyQuantity": 5, "Amount": 7706031.06, "AmountRate": 20, "EmergencyQuantityRate": 5 }, { "ID": 41, "Month": "2016-08-02T00:00:00", "TypeName": "防水", "TotalAmount": 1329644.16, "TotalQuantity": 251, "TotalAmountRate": 39, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 42, "Month": "2016-08-02T00:00:00", "TypeName": "电梯", "TotalAmount": 4523456.52, "TotalQuantity": 248, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 43, "Month": "2016-08-02T00:00:00", "TypeName": "安防", "TotalAmount": 485456.52, "TotalQuantity": 456, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 44, "Month": "2016-08-02T00:00:00", "TypeName": "管道", "TotalAmount": 566256.52, "TotalQuantity": 210, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 45, "Month": "2016-08-02T00:00:00", "TypeName": "供水", "TotalAmount": 9867891.12, "TotalQuantity": 120, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 46, "Month": "2016-08-02T00:00:00", "TypeName": "外墙", "TotalAmount": 456256.52, "TotalQuantity": 320, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 47, "Month": "2016-08-02T00:00:00", "TypeName": "路面", "TotalAmount": 6512891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 30, "Month": "2016-09-02T00:00:00", "TypeName": "消防", "TotalAmount": 7869869.02, "TotalQuantity": 478, "TotalAmountRate": 20, "EmergencyQuantity": 5, "Amount": 7706031.06, "AmountRate": 20, "EmergencyQuantityRate": 5 }, { "ID": 31, "Month": "2016-09-02T00:00:00", "TypeName": "防水", "TotalAmount": 1039644.16, "TotalQuantity": 412, "TotalAmountRate": 39, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 32, "Month": "2016-09-02T00:00:00", "TypeName": "电梯", "TotalAmount": 423456.52, "TotalQuantity": 320, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 33, "Month": "2016-09-02T00:00:00", "TypeName": "安防", "TotalAmount": 985456.52, "TotalQuantity": 123, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 34, "Month": "2016-09-02T00:00:00", "TypeName": "管道", "TotalAmount": 856256.52, "TotalQuantity": 325, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 35, "Month": "2016-09-02T00:00:00", "TypeName": "供水", "TotalAmount": 4567891.12, "TotalQuantity": 210, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 36, "Month": "2016-09-02T00:00:00", "TypeName": "外墙", "TotalAmount": 556256.52, "TotalQuantity": 410, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 37, "Month": "2016-09-02T00:00:00", "TypeName": "路面", "TotalAmount": 4412891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 38, "Month": "2016-09-02T00:00:00", "TypeName": "其它", "TotalAmount": 3212891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 21, "Month": "2016-10-02T00:00:00", "TypeName": "消防", "TotalAmount": 8769869.02, "TotalQuantity": 320, "TotalAmountRate": 20, "EmergencyQuantity": 5, "Amount": 7706031.06, "AmountRate": 20, "EmergencyQuantityRate": 5 }, { "ID": 22, "Month": "2016-10-02T00:00:00", "TypeName": "防水", "TotalAmount": 1329644.16, "TotalQuantity": 251, "TotalAmountRate": 39, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 23, "Month": "2016-10-02T00:00:00", "TypeName": "电梯", "TotalAmount": 4523456.52, "TotalQuantity": 248, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 24, "Month": "2016-10-02T00:00:00", "TypeName": "安防", "TotalAmount": 485456.52, "TotalQuantity": 456, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 25, "Month": "2016-10-02T00:00:00", "TypeName": "管道", "TotalAmount": 566256.52, "TotalQuantity": 210, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 26, "Month": "2016-10-02T00:00:00", "TypeName": "供水", "TotalAmount": 9867891.12, "TotalQuantity": 120, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 27, "Month": "2016-10-02T00:00:00", "TypeName": "外墙", "TotalAmount": 456256.52, "TotalQuantity": 320, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 28, "Month": "2016-10-02T00:00:00", "TypeName": "路面", "TotalAmount": 6512891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 29, "Month": "2016-10-02T00:00:00", "TypeName": "其它", "TotalAmount": 8712891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 12, "Month": "2016-11-02T00:00:00", "TypeName": "消防", "TotalAmount": 4569869.02, "TotalQuantity": 100, "TotalAmountRate": 20, "EmergencyQuantity": 5, "Amount": 7706031.06, "AmountRate": 20, "EmergencyQuantityRate": 5 }, { "ID": 13, "Month": "2016-11-02T00:00:00", "TypeName": "防水", "TotalAmount": 6529644.16, "TotalQuantity": 120, "TotalAmountRate": 39, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 14, "Month": "2016-11-02T00:00:00", "TypeName": "电梯", "TotalAmount": 4123456.52, "TotalQuantity": 186, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 15, "Month": "2016-11-02T00:00:00", "TypeName": "安防", "TotalAmount": 525456.52, "TotalQuantity": 254, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 16, "Month": "2016-11-02T00:00:00", "TypeName": "管道", "TotalAmount": 856256.52, "TotalQuantity": 234, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 17, "Month": "2016-11-02T00:00:00", "TypeName": "供水", "TotalAmount": 4167891.12, "TotalQuantity": 278, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 18, "Month": "2016-11-02T00:00:00", "TypeName": "外墙", "TotalAmount": 126256.52, "TotalQuantity": 159, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 19, "Month": "2016-11-02T00:00:00", "TypeName": "路面", "TotalAmount": 9812891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null }, { "ID": 20, "Month": "2016-11-02T00:00:00", "TypeName": "其它", "TotalAmount": 1212891.12, "TotalQuantity": null, "TotalAmountRate": null, "EmergencyQuantity": null, "Amount": null, "AmountRate": null, "EmergencyQuantityRate": null}];
+            //初始化echarts实例 折线图部分
+            fundLine = echarts.init(document.getElementById('fund_chart_line'));
+            fundLine.showLoading();
+            bindFundLine();
+            fundLine.hideLoading();
+            //柱状图部分
+            fundBar = echarts.init(document.getElementById('fund_chart_bar'));
+            fundBar.showLoading();
+            bindFundBar();
+            fundBar.hideLoading();
+        }
+        /*
+        基金总额饼图处理
+        */
+        function bindFundPie() {
+            var legendData = getLengendData();
+            var data = getFundPieSeriesData();
+            var option = {
+                title: {
+                    top: '1%',
+                    left: '2%',
+                    text: '基金总额饼图',
+                    textStyle: {
+                        color: '#2CAFEC'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                    top: '8%',
+                    right: '2%',
+                    data: legendData
+                },
+                series:
+          [
+           {
+               name: '基金总额占比',
+               type: 'pie',
+               radius: ['30%', '50%'],
+               avoidLabelOverlap: false,
+               label: {
+                   normal: {
+                       show: true,
+                       formatter: '{b}: {d}%'
+                   },
+                   emphasis: {
+                       show: true,
+                       textStyle: {
+                           fontSize: '15',
+                           fontWeight: 'bold'
+                       }
+                   }
+               },
+               labelLine: {
+                   normal: {
+                       show: true,
+                       length: 10,
+                       length2: 40
+                   }
+               }, data: data
+           }
+         ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            fundPie.setOption(option);
+        }
+        /*
+        取的饼图的所有图例项
+        */
+        function getLengendData() {
+            var arrData = new Array();
+            if (pieData == "" || pieData == null) {
+                return;
+            }
+            for (var i = 0; i < pieData.length; i++) {
+                arrData.push(pieData[i].TypeName);
+            }
+            return arrData;
+        }
+        /*
+        取的饼图series数据
+        */
+        function getFundPieSeriesData() {
+            var arrData = new Array();
+            if (pieData == "" || pieData == null) {
+                return;
+            }
+            for (var i = 0; i < pieData.length; i++) {
+                var objData = new Object();
+                objData.value = pieData[i].TotalAmount;
+                objData.name = pieData[i].TypeName;
+                arrData.push(objData);
+            }
+            return arrData;
+        }
+        /*
+        件数南丁格尔图
+        */
+        function bindFundRosePieData() {
+            var data = getFundRosePieSeriesData();
+            var option = {
+                title: {
+                    top: '1%',
+                    left: '2%',
+                    text: '基金件数玫瑰图',
+                    textStyle: {
+                        color: '#2CAFEC'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                visualMap: {
+                    show: false
+                },
+                series: [
+        {
+            name: '件数',
+            type: 'pie',
+            radius: '60%',
+            data: data,
+            roseType: 'angle',
+            label: {
+                normal: {
+                    textStyle: {
+                        color: '#000000'
+                    },
+                    formatter: '{b}: {d}%'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '15',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    lineStyle: {
+                        color: '#2CAFEC'
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#c23531',
+                    shadowBlur: 200,
+                    shadowColor: '#2CAFEC'
+                }
+            }
+        }
+    ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            fundRosePie.setOption(option);
+        }
+        /*
+        南丁格尔图series数据
+        */
+        function getFundRosePieSeriesData() {
+            var arrData = new Array();
+            if (pieData == "" || pieData == null) {
+                return;
+            }
+            for (var i = 0; i < pieData.length; i++) {
+                var objData = new Object();
+                objData.value = pieData[i].TotalQuantity;
+                objData.name = pieData[i].TypeName;
+                arrData.push(objData);
+            }
+            return arrData;
+        }
+        /*
+        折线图
+        */
+        function bindFundLine() {
+            //拿X轴时间月份数据
+            var xData = getFundLineXData();
+            var legendData = getFundLineLengendData();
+            var seriesData = getFundLineSeriesData();
+            //        alert(xData);
+            //        alert(legendData);
+            //        alert(JSON.stringify(seriesData));
+            var option = {
+                grid: {
+                    right: '2%',
+                    bottom: '10%',
+                    width: '80%',
+                    height: '70%'
+                },
+                title: {
+                    top: '1%',
+                    left: '2%',
+                    text: '基金统计折线图',
+                    textStyle: {
+                        color: '#2CAFEC'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'line',
+                        lineStyle: {
+                            color: '#2CAFEC'
+                        }
+                    }
+                },
+                legend: {
+                    top: '8%',
+                    right: '2%',
+                    data: legendData
+                },
+                xAxis: {
+                    data: xData,
+                    axisTick: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    axisTick: {
+                        show: false
+                    }
+                },
+                series: seriesData
+            };
+            fundLine.setOption(option);
+        }
+        /*
+        X轴数据（时间年月）
+        */
+        function getFundLineXData() {
+            var arrData = new Array();
+            var conversion = new Array();
+            for (var i = 0; i < lineData.length; i++) {
+                var month = lineData[i].Month.toString().substring(5, 7);
+                conversion.push(month);
+            }
+            //赛选重复数据
+            var isRepeated;
+            for (var i = 0, len = conversion.length; i < len; i++) {
+                isRepeated = false;
+                for (var j = 0; j < arrData.length; j++) {
+                    if (conversion[i] == arrData[j]) {
+                        isRepeated = true;
+                        break;
+                    }
+                }
+                if (!isRepeated) {
+                    arrData.push(conversion[i]);
+                }
+            }
+            //data顺序从最开始的一个月份开始
+            //        var data = new Array();
+            //        for (var i = arrData.length - 1; i >= 0; i--) {
+            //            data.push(arrData[i]);
+            //        }
+            //alert(JSON.stringify(data));
+            return arrData;
+        }
+        /*
+        图例数组
+        */
+        function getFundLineLengendData() {
+            var arrData = new Array();
+            var conversion = new Array();
+            for (var i = 0; i < lineData.length; i++) {
+                var typeName = lineData[i].TypeName;
+                conversion.push(typeName);
+            }
+            //赛选重复数据,组织数据从最早月份开始
+            var isRepeated;
+            for (var i = 0, len = conversion.length; i < len; i++) {
+                isRepeated = false;
+                for (var j = 0; j < arrData.length; j++) {
+                    if (conversion[i] == arrData[j]) {
+                        isRepeated = true;
+                        break;
+                    }
+                }
+                if (!isRepeated) {
+                    arrData.push(conversion[i]);
+                }
+            }
+            //alert(JSON.stringify(arrData));
+            return arrData;
+        }
+        /*
+        组织seriesData数据一，根据项分组数据
+        */
+        function dealFundLineSeriesData() {
+            var itemData = getFundLineLengendData();
+            var arrData = new Array();
+
+            //赛选同种类（如消防）类数据
+            for (var i = 0; i < itemData.length; i++) {
+                var dealData = new Object();
+                dealData.name = itemData[i];
+                var dealDataArr = new Array();
+                for (var j = 0; j < lineData.length; j++) {
+                    if (lineData[j].TypeName == itemData[i]) {
+                        //                    dealData.name = lineData[j].TypeName;
+                        //                    dealData.value = lineData[j].TotalAmount;
+                        //                    dealData.time = lineData[j].Month;
+                        dealDataArr.push(lineData[j].TotalAmount);
+                        //                    conversionData.push(dealData);
+                    }
+                }
+                //从最早的月份开始
+                //            var conversionData = new Array();
+                //            conversionData = dataSortingConversion(dealDataArr);
+                //            dealData.value = conversionData;
+                dealData.value = dealDataArr;
+                arrData.push(dealData);
+            }
+            // alert(JSON.stringify(arrData));
+            return arrData;
+        }
+        /*
+        组织数据从最早的月份开始
+        */
+        function dataSortingConversion(data) {
+            var dealData = new Array();
+            for (var i = data.length - 1; i >= 0; i--) {
+                dealData.push(data[i]);
+            }
+            return dealData;
+        }
+        /*
+        组织折线图seriesData数据
+        */
+        function getFundLineSeriesData() {
+            //series数组
+            var arrData = new Array();
+            //obj对象转换
+
+            //拿到根据项分组处理后的数据
+            var dealData = dealFundLineSeriesData();
+            //alert(JSON.stringify(dealData));
+            for (var i = 0; i < dealData.length; i++) {
+                //alert(JSON.stringify(dealData));
+                //            var arrDealData = new Array();
+                var objData = new Object();
+                objData.name = dealData[i].name;
+                objData.type = "line";
+                objData.data = dealData[i].value;
+                objData.symbolSize = 10;
+                arrData.push(objData);
+            }
+            //alert(JSON.stringify(arrData));
+            return arrData;
+        }
+        //    /*
+        //    柱状图
+        //    */
+        function bindFundBar() {
+            //拿X轴时间月份数据
+            var xData = getFundLineXData();
+            var legendData = getFundLineLengendData();
+            var seriesData = getFundBarSeriesData();
+            //        alert(xData);
+            //        alert(legendData);
+            //        alert(JSON.stringify(seriesData));
+            var option = {
+                grid: {
+                    right: '2%',
+                    bottom: '10%',
+                    width: '80%',
+                    height: '70%'
+                },
+                title: {
+                    top: '1%',
+                    left: '2%',
+                    text: '基金统计条形图',
+                    textStyle: {
+                        color: '#2CAFEC'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'line',
+                        lineStyle: {
+                            color: '#2CAFEC'
+                        }
+                    }
+                },
+                legend: {
+                    top: '8%',
+                    right: '2%',
+                    data: legendData
+                },
+                xAxis: {
+                    data: xData,
+                    axisTick: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    axisTick: {
+                        show: false
+                    }
+                },
+                series: seriesData
+            };
+            fundBar.setOption(option);
+        }
+        /*
+        组织seriesData数据一，根据项分组数据
+        */
+        function dealFundBarSeriesData() {
+            var itemData = getFundLineLengendData();
+            var arrData = new Array();
+            //赛选同种类（如消防）类数据
+            for (var i = 0; i < itemData.length; i++) {
+                var dealData = new Object();
+                dealData.name = itemData[i];
+                var dealDataArr = new Array();
+                for (var j = 0; j < lineData.length; j++) {
+                    if (lineData[j].TypeName == itemData[i]) {
+                        dealDataArr.push(lineData[j].TotalQuantity);
+                    }
+                }
+                //从最早的月份开始
+                //            var conversionData = new Array();
+                //            conversionData = dataSortingConversion(dealDataArr);
+                //            dealData.value = conversionData;
+                dealData.value = dealDataArr;
+                arrData.push(dealData);
+            }
+            // alert(JSON.stringify(arrData));
+            return arrData;
+        }
+        /*
+        组织条形图seriesData数据
+        */
+        function getFundBarSeriesData() {
+            //series数组
+            var arrData = new Array();
+            //obj对象转换
+            //拿到根据项分组处理后的数据
+            var dealData = dealFundBarSeriesData();
+            //alert(JSON.stringify(dealData));
+            for (var i = 0; i < dealData.length; i++) {
+                //alert(JSON.stringify(dealData));
+                //            var arrDealData = new Array();
+                var objData = new Object();
+                objData.name = dealData[i].name;
+                objData.type = "bar";
+                objData.data = dealData[i].value;
+                objData.symbolSize = 10;
+                arrData.push(objData);
+            }
+            //alert(JSON.stringify(arrData));
+            return arrData;
+        }
+
+
+    </script>
+</head>
+<body>
+    <div style="width: 1000px; height: 800px; margin: 0px auto; border: 1px solid black;">
+        <div id="fund_chart_line" class="fund_chart">
+        </div>
+        <div id="fund_chart_bar" class="fund_chart">
+        </div>
+        <div id="fund_chart_pie" class="fund_chart">
+        </div>
+        <div id="fund_chart_rosepie" class="fund_chart">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿body { padding: 0px; margin: 0px; }
+.display_note { display: none; }
+.home { width: 100%; background-color: #212121; height: 60px; position: relative; }
+.home .log { width: 350px; height: 60px; background-color: #212121; border: #212121; float: left; }
+.home .log img { margin-left: 10px; float: left; height: 60px; }
+.home .log .name { display: block; height: 60px; line-height: 60px; float: left; margin-left: 10px; font-size: 25px; color: #D5D8DD; font-weight: bold; }
+.home .box { width: 600px; height: 60px; margin: 0 auto; }
+.home .box .homeitem { width: 150px; float: left; }
+.home .box .homeitem .case { width: 110px; margin: 0 auto; }
+.home .box .homeitem img { width: 20px; height: 20px; margin-top: 20px; float: left; }
+.home .box .homeitem .title { height: 50px; line-height: 60px; text-align: center; font-size: 18px; color: #D5D8DD; font-weight: bold; display: block; float: left; }
+.home .box .homeitem .butimg { width: 100%; clear: both; display: none; }
+.on { display: block; }
+.home .box .homeitem .butimg img { width: 100%; height: 10px; float: none; margin: 0px; }
+
+.width_150 { width: 150px; }
+.home .character { position: absolute; top: 0px; right: 0px; height: 60px; width: 240px; }
+.home .character .left { float: left; width: 45px; height: 45px; -webkit-border-radius: 50%; margin-top: 8px; }
+.home .character .left img { width: 100%; height: 100%; -webkit-border-radius: 50%; }
+.home .character .right { float: left; margin-left: 10px; margin-top: 10px; }
+.home .character .right_ei { float: right; height: 60px; overflow: hidden; margin-left: 30px; }
+.home .character .right_ei img { height: 60px; }
+.home .character .right .name { color: White; font-weight: bold; font-size: 17px; }
+.home .character .right .occupation { color: #898989; font-weight: bold; font-size: 13px; margin-top: 5px; }
+.down_down_button { float: left; width: 15px; height: 60px; color: White; line-height: 60px; background: url("../img/dropdown.png") center no-repeat; }
+.home .phone { display: none; float: right; width: 60px; height: 60px; }
+.home .phone img { margin-top: 15px; margin-left: 5px; height: 30px; }
+.home .dropdown { position: absolute; display: none; width: 90px; background-color: #212121; right: 0px; top: 60px; }
+.home .dropdown .title { display: block; width: 100%; height: 30px; line-height: 30px; font-size: 13px; text-align: center; color: White; font-weight: bold; }
+.home .dropdown .title a { width: 90px; height: 30px; color: White; display: block; text-decoration: none; }
+.home .dropdown .title a:hover { background-color: #524A54; }
+.ChildPages { width: 100%; }
+
+.title_indent { text-indent: 18px; }
+.img_marginleft { margin-left: 20px; }

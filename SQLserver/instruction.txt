@@ -1,0 +1,5 @@
+﻿1.将截断字符串或者二进制数据，原因可能是因为数据库中的字段长度超出范围。
+
+2.drop删除的通常是对象 如：表,function,proc,等等
+
+3.select * from dbo.SysUser order by case when ID=3  then 2 else 1 end,CreateTime desc 指定字段排序

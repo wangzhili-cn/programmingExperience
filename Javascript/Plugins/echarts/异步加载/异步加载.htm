@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../jquery-1.9.1/jquery.js" type="text/javascript"></script>
+    <script src="../configuration/echarts.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="chart" style="width: 500px; height: 500px;">
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart'));
+        var timer = null;
+        $(function () {
+            echart();
+            setData();
+        })
+        function echart() {
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['销量']
+                },
+                xAxis: {
+                    data: []
+                },
+                yAxis: {},
+                series: [{
+                    type: 'bar',
+                    data: []
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        }
+        function setData() {
+            timer = setInterval(function () {
+                var arr = new Array();
+                for (var i = 0; i < 6; i++) {
+                    var val = Math.ceil(Math.random() * 10);
+                    arr.push(val);
+                    console.log(val);
+                }
+                myChart.setOption({
+                    xAxis: {
+                        data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                    },
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        data: [12, 45, 41, 32, 21, 51]
+                    }]
+                })
+                arr.splice(0, arr.length);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

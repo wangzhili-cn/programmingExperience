@@ -1,0 +1,10 @@
+﻿.drop_down_menu { position: fixed; top: 45px; right: 100px; width: 150px; color: White; display: none; }
+.drop_down_menu_body { background: #44464a; height: 180px; }
+.drop_down_menu_body a, a:hover, a:visited { font-size: 14px; text-decoration: none; color: White; }
+.drop_down_menu_head { margin-left: 100px; height: 7px; background: url(../img/up_dark.png) no-repeat center; }
+.drop_down_menu_item { line-height: 40px; height: 40px; margin-left: 15px; padding-left: 40px; }
+.change_password { background: url("../img/change_password.png") no-repeat left; }
+
+.change_theme { background: url("../img/change_theme.png") no-repeat left; }
+.theme_light { background: url("../img/theme_light.png") no-repeat left; }
+.theme_dark { background: url("../img/theme_dark.png") no-repeat left; }

@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>第二日期框同步出现</title>
+    <link href="../../../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/common.css" rel="stylesheet" type="text/css" />
+    <script src="../../../js/jquery/jquery.js" type="text/javascript"></script>
+    <script src="../My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class=" size_500 margin ">
+        <input id="d5221" class="Wdate" type="text" onfocus="var d5222=$dp.$('d5222');WdatePicker({onpicked:function(){d5222.focus();},maxDate:'#F{$dp.$D(\'d5222\')}'})" />
+        至
+        <input id="d5222" class="Wdate" type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'d5221\')}'})" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>实例: jQuery插件：Tiny Scrollbar滚动条插件（滚动条美化、默认滚动条） -- 青豆前端</title>
+    <style>
+@charset "utf-8";
+body,h1,h2,h3,h4,p,ul,li,ol,dl,dt,dd,input,textarea,figure,form{margin:0;padding:0}
+body,input,textarea{font-size:12px;font-family:microsoft yahei}
+body{text-align:center;color:#33383D;background:#eee}
+ul,ol{list-style:none}
+img{border:0}
+button,input {line-height:normal;*overflow:visible}
+input,textarea{outline:none}
+a{color:#428BD1;text-decoration:none}
+a:hover{color:#3071A9}
+.demo-header{position:relative;height:32px;background-color:#4A4A4A;line-height:32px;text-align: left;z-index:999;}
+.demo-name{background-color: #4e856e;color: #ff925c;display: inline-block;padding: 0 20px;}
+.demo-name:hover{color: #fff;}
+.demo-title{height:0;overflow:hidden}
+.demo-container{clear: both;text-align:left;margin:0 auto;line-height: 18px;}
+.demo h2{font-size: 15px;padding-bottom: 6px;margin-bottom: 20px;border-bottom: solid 1px #ddd;}
+</style>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <h1 class="demo-title">
+        实例: jQuery插件：Tiny Scrollbar滚动条插件（滚动条美化、默认滚动条） -- 青豆前端</h1>
+    <div class="demo-header">
+        <a class="demo-name" href="http://www.qingdou.me/832.html">&laquo; jQuery插件：Tiny Scrollbar滚动条插件（滚动条美化、默认滚动条）</a>
+        <span style="display: none">
+            <script src="http://v1.cnzz.com/stat.php?id=5651120&web_id=5651120&show=pic" language="JavaScript"></script>
+        </span>
+    </div>
+    <div class="demo-container demo">
+        <style>
+            /* Tiny Scrollbar scrollbar1*/#scrollbar1
+            {
+                width: 520px;
+                margin: 20px 0 10px;
+            }
+            #scrollbar1 .viewport
+            {
+                width: 500px;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+            }
+            #scrollbar1 .overview
+            {
+                list-style: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 0;
+                margin: 0;
+            }
+            #scrollbar1 .scrollbar
+            {
+                position: relative;
+                background-position: 0 0;
+                float: right;
+                width: 15px;
+            }
+            #scrollbar1 .track
+            {
+                background-color: #ccc;
+                height: 100%;
+                width: 5px;
+                position: relative;
+            }
+            #scrollbar1 .thumb
+            {
+                background: #cc0071;
+                height: 20px;
+                width: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #scrollbar1 .disable
+            {
+                display: none;
+            }
+            /* Tiny Scrollbar scrollbar2 */#scrollbar2
+            {
+                width: 251px;
+                margin: 20px 0 10px;
+            }
+            #scrollbar2 .viewport
+            {
+                width: 236px;
+                height: 125px;
+                overflow: hidden;
+                position: relative;
+            }
+            #scrollbar2 .overview
+            {
+                list-style: none;
+                width: 1416px;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #scrollbar2 .scrollbar
+            {
+                position: relative;
+                margin: 0 0 5px;
+                clear: both;
+                height: 15px;
+            }
+            #scrollbar2 .track
+            {
+                background: #ccc;
+                width: 100%;
+                height: 5px;
+                position: relative;
+            }
+            #scrollbar2 .thumb
+            {
+                background: #cc0071;
+                height: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #scrollbar2 .disable
+            {
+                display: none;
+            }
+            .noSelect
+            {
+                user-select: none;
+                -o-user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+            }
+            /* Tiny Scrollbar scrollbar3*/#scrollbar3
+            {
+                width: 520px;
+                margin: 20px 0 10px;
+            }
+            #scrollbar3 .viewport
+            {
+                width: 500px;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+            }
+            #scrollbar3 .overview
+            {
+                list-style: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 0;
+                margin: 0;
+            }
+            #scrollbar3 .scrollbar
+            {
+                position: relative;
+                background-position: 0 0;
+                float: right;
+                width: 15px;
+            }
+            #scrollbar3 .track
+            {
+                background-color: #ccc;
+                height: 100%;
+                width: 5px;
+                position: relative;
+            }
+            #scrollbar3 .thumb
+            {
+                background: #cc0071;
+                height: 20px;
+                width: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            /* Tiny Scrollbar scrollbar4*/#scrollbar4
+            {
+                width: 520px;
+                margin: 20px 0 10px;
+            }
+            #scrollbar4 .viewport
+            {
+                width: 500px;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+            }
+            #scrollbar4 .overview
+            {
+                list-style: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 0;
+                margin: 0;
+            }
+            #scrollbar4 .scrollbar
+            {
+                position: relative;
+                background-position: 0 0;
+                float: right;
+                width: 15px;
+            }
+            #scrollbar4 .track
+            {
+                background-color: #ccc;
+                height: 100%;
+                width: 5px;
+                position: relative;
+            }
+            #scrollbar4 .thumb
+            {
+                background: #cc0071;
+                height: 20px;
+                width: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            /* Tiny Scrollbar scrollbar5*/#scrollbar5
+            {
+                width: 520px;
+                margin: 20px 0 10px;
+            }
+            #scrollbar5 .viewport
+            {
+                width: 500px;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+            }
+            #scrollbar5 .overview
+            {
+                list-style: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 0;
+                margin: 0;
+            }
+            #scrollbar5 .scrollbar
+            {
+                position: relative;
+                background-position: 0 0;
+                float: right;
+                width: 15px;
+            }
+            #scrollbar5 .track
+            {
+                background-color: #ccc;
+                height: 100%;
+                width: 5px;
+                position: relative;
+            }
+            #scrollbar5 .thumb
+            {
+                background: #cc0071;
+                height: 20px;
+                width: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #scrollbar5 .disable
+            {
+                display: none;
+            }
+        </style>
+        <script src="jquery.tinyscrollbar.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#scrollbar1').tinyscrollbar();
+                $('#scrollbar2').tinyscrollbar({ axis: 'x' });
+                $('#scrollbar3').tinyscrollbar({ size: 100 });
+                $('#scrollbar4').tinyscrollbar({ sizethumb: 15 });
+                var oScroll5 = $('#scrollbar5');
+                if (oScroll5.length > 0) {
+                    oScroll5.tinyscrollbar_updata();
+                }
+            });
+	</script>
+        <div id="scrollbar1">
+            <div class="scrollbar">
+                <div class="track">
+                    <div class="thumb">
+                    </div>
+                </div>
+            </div>
+            <div class="viewport">
+                <div class="overview">
+                    <h3>
+                        青豆前端</h3>
+                    <p>
+                        近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法</p>
+                </div>
+            </div>
+        </div>
+        <div id="scrollbar2">
+            <div class="scrollbar">
+                <div class="track">
+                    <div class="thumb">
+                    </div>
+                </div>
+            </div>
+            <div class="viewport">
+                <div class="overview">
+                    <h3>
+                        青豆前端</h3>
+                    <p>
+                        近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 transform ： none |
+                        <transform-function> [ <transform-function>
+                        ]*</p>
+                </div>
+            </div>
+        </div>
+        <div id="scrollbar3">
+            <div class="scrollbar">
+                <div class="track">
+                    <div class="thumb">
+                    </div>
+                </div>
+            </div>
+            <div class="viewport">
+                <div class="overview">
+                    <h3>
+                        青豆前端</h3>
+                    <p>
+                        近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="scrollbar4">
+            <div class="scrollbar">
+                <div class="track">
+                    <div class="thumb">
+                    </div>
+                </div>
+            </div>
+            <div class="viewport">
+                <div class="overview">
+                    <h3>
+                        青豆前端</h3>
+                    <p>
+                        近来，HTML5和CSS3的发展速度还是很可观的，国外不乏一些大站，酷站都在使用最新的技术。国内也正在逐步改变着，苦于国内ie用户群太广呀！苦逼前端工程师，各种兼容，css3、html5是趋势，大家一起来学习一下吧！
+                        Jquery2.0已经不支持ie6.7.8了，可见jquery团队对ie。。。。。。。。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法 今天开始我们一起来学习有关于CSS3制作动画的几个属性：变形(transform)、转换(transition)和动画(animation)等技术。本文主要介绍的是这三个属性之中的第一个──变形transform。
+                        Transform英文翻译是变形，改变的意思。在CSS3中transform主要包括以下几种：旋转（rotate）、扭曲（skew）、缩放（scale）和移动（translate）以及矩阵变形（matrix）。下面我们一起来看看在CSS3中具体它们是如何实现
+                        先从语法开始吧。 语法</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
