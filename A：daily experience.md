@@ -1,4 +1,6 @@
-### Entries are separated by a semicolon
+---
+Entries are separated by a semicolon
+---
 1. notepad++仅有32位有安装插件的功能,可进行文本对比,64位版本不提供插件功能.;
 2. XML的声明部分没有结束标记,XML声明并不是XML的一部分,所以没有结束标记.  
    书信的信封说明并不是书信内容的一部分,但是对于书信的传递却包含重要意义.类型与数据豪不相关,但是对于操作这个数据的软件来说却相当重要.;
