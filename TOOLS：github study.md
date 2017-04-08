@@ -1,4 +1,6 @@
-### github study  
+---
+github study  
+---
 1. 本地删除分支命令：git branch -D name（需要先选中主分支）;  
 2. 这个同性交友网站功能挺单一的，就三个功能：
     - Watch   => 关注全部动态（Commit/Issues/PRs etc）  
