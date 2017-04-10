@@ -46,6 +46,7 @@ public class HelloWorld{
 }
 ```  
 - 执行一个class文件的正确命令 java class  
+
 > 借助第三方工具提高开发效率:eclipse（IDE 集成开发环境）  
 - Eclipse下载地址：http://www.eclipse.org/downloads/  
   - 32位或者 64位  
@@ -57,4 +58,19 @@ public class HelloWorld{
 - 第一步，创建一个工程  
 - 创建包的目的是便于程序的管理  
 - main是整个程序的入口  
+
+> eclipse的拓展-MyEclipse  
+- MyEclipse是对Eclipse的扩展，是一个十分优秀的用于开发java,javaee的Eclipse插件集合。  
+- MyEclipse的下载地址：http://www.my-eclipse.cn/  
+- 创建包：名字可以是com.imooc.  
+
+> 程序的移植（项目导入和导出）  
+- 方法：导出：右键项目--Properties属性--Location地址位置--打开路径--拷贝项目。  
+- 导入：在空白处右键--Import--General--Existing Projects into Workspace--Browse查找需要导入的文件。  
+- Java程序是区分大小写的。  
+
+> 勤奋的敲代码  
+- java属于技术性比较强的技能，需要多练，多问，自己动手，调试错误，复习和总结。
+- 学虽容易，学好不易，且学且珍惜。
+
 
