@@ -63,3 +63,19 @@ public     void       show(){
 4. 当方法参数有多个时，多个参数间以逗号分隔  
 
 > 带参带返回值方法  
+- 如果方法既包含参数，又带有返回值，我们称为带参带返回值的方法。  
+```java
+public int sort(  int[] scores )
+
+{		
+
+Arrays.sort(scores);		
+
+System.out.println(Arrays.toString(scores));		        
+
+//返回数组中元素的个数      
+
+return  scores.length;	
+
+}
+```
