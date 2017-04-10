@@ -44,4 +44,6 @@ public class HelloWorld{
         System.out.println("welcome to imooc!");
   }
 }
-```
+```  
+- 执行一个class文件的正确命令 java class  
+
