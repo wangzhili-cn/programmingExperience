@@ -26,4 +26,22 @@ Java入门基本概念
 - lib 文件夹是库文件，里面的文件基本都是以jar为结尾的  
 - JDK目录：  
   - bin -->.exe文件（命令文件）
-  - lib -->.calss文件（类库文件）
+  - lib -->.calss文件（类库文件）  
+ 
+> 用记事本编写Java程序  
+- java的跨平台就是因为字节码文件的存在  
+- 使用记事本编写java程序  
+  1. 编写JAVA源代码，文件以.java结尾。  
+  2. 使用JAVAC命令将其编译(编译器：compller)成字节码文件(以.class结尾)。  
+  3. 使用解释器（interpreter）将JAVA命令在电脑上呈现出来  
+- 执行字节码文件时不能跟上字节码文件名（即不能跟上.class）  
+- 可以通过dir在dos命令中查看  
+- 编译方法:javac hellowword.java  
+- .java的源文件，通过编译器（使用javac命令）生成字节码文件（.class），然后使用解释器（使用java命令）去解释运行字节码文件。  
+```java
+public class HelloWorld{
+ public static void main (String[] args){
+        System.out.println("welcome to imooc!");
+  }
+}
+```
