@@ -46,4 +46,15 @@ public class HelloWorld{
 }
 ```  
 - 执行一个class文件的正确命令 java class  
+> 借助第三方工具提高开发效率:eclipse（IDE 集成开发环境）  
+- Eclipse下载地址：http://www.eclipse.org/downloads/  
+  - 32位或者 64位  
+- Eclipse是绿色的，只需要解压缩就可以直接使用
+1. 创建java项目  
+2. 创建程序包  
+3. 编写java源程序  
+4. 运行java程序  
+- 第一步，创建一个工程  
+- 创建包的目的是便于程序的管理  
+- main是整个程序的入口  
 
