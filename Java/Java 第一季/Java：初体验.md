@@ -48,7 +48,8 @@ public class HelloWorld{
 - 执行一个class文件的正确命令 java class  
 
 > 借助第三方工具提高开发效率:eclipse（IDE 集成开发环境）  
-- Eclipse下载地址：http://www.eclipse.org/downloads/  
+- IDE Integrated Drive Electronics  
+- Eclipse下载地址：http://www.eclipse.org/downloads/   
   - 32位或者 64位  
 - Eclipse是绿色的，只需要解压缩就可以直接使用
 1. 创建java项目  
