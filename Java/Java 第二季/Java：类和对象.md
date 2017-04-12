@@ -9,5 +9,36 @@
   - 对象：具体是事物皆可为对象。  
   - 类是通过描述我们对象所具有的特征属性、行为方法。  
   - 而对象是我们通过描述的特征属性、行为方法后，可供我们选择的东西。  
-  - 万物皆对象，只要是可以接触的，都是对象。  
+  - 万物皆对象，只要是可以接触的，都是对象。  
+
+- java中的类  
+  - 所有的java程序都是由类class来组织单元的  
+  - 类，包括属性和方法，两个性质，包括，有什么，和能干什么，定义类时，必须先定义类名（区分不同的类）  
+```java  
+punlic class 类名（Telepgone）{
+  // 属性（成员列表）（能干什么）
+ float Screen;
+float Cpu;
+float Mem;
+//方法（能干什么）
+void call(){
+System.out.println("Telephone有打电话的功能");
+}
+
+void sendMessage(){
+System.out.println("Telephone有发短信的功能");
+}
+```  
+
+- java中的对象  
+- float型变量赋值时需加f，否则默认浮点数是double型
+  - float a=1.2f;  
+- 类是以文档的形式保存在计算机中的，当把他实例化了之后，类的属性等信息就会被分配到内存中保存。  
+- 1、创建对象： 类名 对象名 = new 类名（）；（对一个类进行实例化 ）  
+    - 例：Telphone phone =new Telphone（）；  
+- 2、使用对象：引用对象的属性 对象名.属性  
+    - 例：phone.screen = 5；//给实例对象赋值  
+    - 引用对象方法： 对象名.方法名（）；  
+    - 例： phone.sendMessage（）；  
+
   
