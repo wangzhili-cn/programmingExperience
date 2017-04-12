@@ -48,5 +48,29 @@ System.out.println("Telephone有发短信的功能");
 - 成员变量与局部变量名相同，优先调用局部变量的值  
   1. 局部变量：在类的方法中定义，在方法中临时保存数据  
   2. 成员变量：在类中定义，用来描述对象将要有什么。  
-  
+
+> 构造方法  
+- 普通方法只能用来表示用户干什么  
+- 而构造方法可以创建对象并初始化对象  
+1. 构造方法是一个用于初始化对象的方法
+2. 使用new+构造方法创建对象
+3. 构造方法可以有参数，但没有返回值类型，方法名与类名相同
+4. 有参数的构造方法用于初始化时赋值
+5. 系统自带一个无参的构造方法，自己定义构造方法相当于重写了构造方法
+6. 方法重载：方法名相同，参数个数和类型不同  
+- 构造方法可以用于控制初始化对象赋值的准确性。  
+```java  
+package com.imooc;
+
+public class InitialTelphone {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//通过无参、有参创建对象
+     Telphone phone = new Telphone();
+     Telphone phone2 = new Telphone(1.0f,2.0f,3.0f);//给对象的实例变量赋予初值
+	}
+
+}
+```
   
