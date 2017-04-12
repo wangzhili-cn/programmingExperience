@@ -8,14 +8,14 @@ Java Skills
 - 执行的DDL语句，没有返回数据，只是操作了数据，返回false  
 - excuseQuery返回ResultSet  
 - 只要生成jar文件就可以在装有java虚拟机上运行了  
-- 1、JDBC中的这个参数
-    true：sql命令的提交（commit）由驱动程序负责
-    false：sql命令的提交由应用程序负责，程序必须调用commit或者rollback方法
-    2、当n个sql 视为一个整体（原子性），要么都执行，要么一个不执行时候
-    通过 setAutoCommit 进行控制。
-    setAutoCommit(false);
-    sql语句;
-    sql语句;
-    ......
-    commit();
+- 1、JDBC中的这个参数  
+    true：sql命令的提交（commit）由驱动程序负责  
+    false：sql命令的提交由应用程序负责，程序必须调用commit或者rollback方法  
+    2、当n个sql 视为一个整体（原子性），要么都执行，要么一个不执行时候  
+    通过 setAutoCommit 进行控制。  
+    setAutoCommit(false);  
+    sql语句;  
+    sql语句;  
+    ......  
+    commit();  
 
