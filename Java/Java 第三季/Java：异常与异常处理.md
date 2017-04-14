@@ -37,7 +37,7 @@ catch(抓到)（这种错误）{
 - 无异常：则再执行finally块，因为finally块中有return所以提前退出。  
 - finally中有return会吃掉异常的  
 
-throw和throws的区别：  
+> throw和throws的区别：  
 1. throw在方法体内，后面跟的是异常类对象，并且只能有一个  
 2. throws在方法声明后面，后面跟的是异常类名，可以有多个  
 
