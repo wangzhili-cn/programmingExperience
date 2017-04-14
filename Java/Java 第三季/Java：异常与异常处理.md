@@ -82,6 +82,7 @@ public class DrunkException extends Exception {
 一个定义抛出异常这个动作，另一个定义可能出现的异常。  
 
 > java异常链  
+
 只有Error，Exception，RuntimeException提供了带cause参数的构造器，其他的所有异常类只能通过initCause()来设置cause。  
 所有Throwable的子类构造器中都可以接受一个cause对象作为参数。  
 cause是异常原由，代表着原始异常。既可以在当前位置创建并抛出行的异常，也可以通过cause追踪到异常最初发生的位置。  
