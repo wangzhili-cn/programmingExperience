@@ -43,3 +43,53 @@ System.out.println(s1==s2);
 地址不一样。  
 就是false。  
 
+> String类常用方法  
+- int length() 返回当前字符串的长度  
+- int indexOf(int ch) 查找ch字符在该字符串中第一次出现的位置  
+- int indexOf(String str) 查找str子字符串在该字符串中第一次出现的位置  
+- int lastIndexOf(int ch) 查找ch字符在该字符串中最后一次出现的位置  
+- int lastIndexOf(String str) 查找str子字符串在该字符串中最后一次出现的位置  
+- String substring(int beginIndex) 获取从beginIndex位置开始到结束的子字符串  
+- String substring(int beginIndex, int endIndex) 获取从beginIndex位置开始到endIndex位置的子字符串  
+- String trim() 返回去除了前后空格的字符串  
+- boolean equals(Object obj) 将该字符串与制定对象比较，返回true或false  
+- String toLowerCase() 将字符串转换为小写  
+- String toUpperCase() 将字符串转换为大写  
+- char charAt(int index) 获取字符串中指定位置的字符  
+- String[] split(String regex, int limit) 将字符串分割为子字符串，返回字符串数组  
+- byte[] getBytes() 将该字符串转换为byte数组  
+
+> String类常用方法2  
+- 对于string自己使用了.length编译错误，然后看了下参考答案，不解，上网查了下.length,.length(),size()的区别，  
+答案如下：  
+1. java中的length属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性.  
+2. java中的length()方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法.  
+3. java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看!  
+
+Object类中  
+equal()方法比较的是对象的引用是否指向同一块内存地址  
+  
+String类中  
+==: 判断两个字符串在内存中首地址是否相同，即判断是否是同一个字符串对象  
+  
+equals(): 比较存储在两个字符串对象中的内容是否一致  
+注意：Object类中是equal()方法；String类中是equals()，差了一个s  
+
+- 也可以用String类的split方法将字符串分割成子字符串数组，然后循环遍历数据  
+
+> StringButter类(StringBuilder 类)  
+在Java中，除了可以使用 String 类来存储字符串，还可以使用 StringBuilder 类或 StringBuffer 类  
+存储字符串，其中：  
+（1）String 类具有是不可变性：多个字符串进行拼接了以后产生一个新的临时变量并指向一个新的对象或新的地址。  
+（2）StringBuffer 是线程安全的，而 StringBuilder 则没有实现线程安全功能，所以性能略高。  
+
+如果需要创建一个内容可变的字符串对象，应优先考虑使用 StringBuilder 类。  
+StringBuilder 对象，用来存储字符串，并对其做了追加和插入操作。  
+这些操作修改了 str 对象的值，而没有创建新的对象，这就是 StringBuilder 和 String 最大的区别。  
+
+> StringBuilder类（常用方法）  
+java 中的 StringBuilder 类的常用方法：  
+1. str.append("abc") 追加字符串 abc  
+2. str.toString();转换为string对象  
+3. str.insert(num,"abc")在字符串num位置(从左到右数num个字符后，添加)添加 abc 内容  
+4. str.length()  
