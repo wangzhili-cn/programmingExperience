@@ -37,4 +37,9 @@ System.out.println(s1==s2);
 String s1 = new String("hello");  
 String s2 = new String("hello");  
 System.out.println(s1==s2);  
-结果则是false，因为他们都在堆中建立了对象，而对象之间的地址值不同  
+结果则是false，因为他们都在堆中建立了对象，而对象之间的地址值不同  
+- 常量池概念  
+第二个。会判拿字符串池 ，有的话，就直接拿过来，没有的话，就放进去。  
+地址不一样。  
+就是false。  
+
