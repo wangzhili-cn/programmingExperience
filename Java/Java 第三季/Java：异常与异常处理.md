@@ -12,6 +12,7 @@ Java异常与异常处理
 ·检查异常CheckException：【需要手动添加捕获和处理语句】文件异常IO等  
 
 > try{}catch{}finaly{}捕获异常  
+
 异常处理：  
 一、try-catch（多catch块）-finally  
 （1）try块：负责捕获异常，一旦try中发现异常，程序的控制权将被移交给catch块中的异常处理程序。  
