@@ -80,3 +80,42 @@ Date date = s.parse(day);//结果如：Fri Feb 14 10:30:20 CST 2014
 因此需要进行异常处理。  
 2、指定日期格式中的月MM和小时HH必须大写，小写结果会不同的。  
 3、使用Date 类时需要导入java.util包，使用SimpleDateFormat时需要导入java.text包。  
+
+> Calendar 类的应用  
+Calendar 类
+1.通过调用 getInstance() 静态方法获取一个 Calendar 对象---对象已初始化  
+Calendar c = Calendar.getInstance();  
+2.通过调用 get() 方法获取日期时间信息  
+int month=c.get(Calendar.MONTH)+1;----0表示1月份  
+3.提供 getTime() 方法，用来获取 Date 对象  
+Date date=c.getTime();----将Calender对象转换为Date对象  
+4.通过 getTimeInMillis() 方法，获取此 Calendar 的时间值  
+long time=c.getTimeInMillis();----获取当前毫秒  
+```java
+//Calendar c = Calendar.getInstance();
+		java.util.Calendar c1=java.util.Calendar.getInstance();
+		// 将Calendar对象转换为Date对象
+		//Date date = c.getTime();
+        java.util.Date date =c1.getTime();
+		// 创建SimpleDateFormat对象，指定目标格式
+		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.text.SimpleDateFormat sdf1=new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// 将日期转换为指定格式的字符串
+		String now = sdf1.format(date);
+		System.out.println("当前时间：" + now);
+  ```
+  
+  > Math类操作数据  
+Math类操作数据  
+1、Math 类位于 java.lang 包中，包含用于执行基本数学运算的方法，  
+Math 类的所有方法都是【静态方法】，所以使用该类中的方法时，可以直接使用类名.  
+方法名，如： Math.round()。  
+2、常用方法：  
+· Math.abs()：取绝对值  
+· Math.random()：随机返回[0,1）之间的一个double值，可*100 再 四舍五入 得到[0,100）的随机整数  
+· Math.pow(a,b)：返回a的b次幂的值  
+· Math.rand()：对浮点数进行四舍五入  
+· Math.ceil()：返回大于参数的最小整数（double类型）  
+· Math.floor()：返回小于参数的最大整数（double类型）  
+· Math.max(a,b)：返回a,b中最大的数  
+· Math.min(a,b)：返回a,b最小值  
