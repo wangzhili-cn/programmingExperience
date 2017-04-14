@@ -28,7 +28,7 @@ catch(抓到)（这种错误）{
     （然后处理）  
 }  
 
-> trycatch处理顺序，throw和throws  
+> trycatch处理顺序，throw和throws   
 - try{ return;}catch(){return;} finally{return;}  
 - 程序执行try块中return之前（包括return语句中的表达式运算）代码；  
 - 有异常：执行catch块中return之前（包括return语句中的表达式运算）代码；  
