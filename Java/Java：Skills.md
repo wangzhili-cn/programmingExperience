@@ -26,4 +26,13 @@ Java Skills
     if(duixiang instanceOf Object)
     {
         system.out.plantln("true");
-    }
+    }
+- jsp和javascript 操作cookie 区别  
+给你一个思考的方式：  
+jsp：服务端执行  
+js：客户端执行  
+cookie：游走在客户端与服务端  
+所以，你可以把cookie看成一种参数传递的方式，至于传递的方向，看你的需求了。  
+cookie是http的内容范畴。  
+如果你想把客户端生成的信息带到服务端，可以借助js写入cookie，发送请求时，请求头就会携带这部分信息给服务端。  
+如果服务端有信息需要传到客户端，可以通过服务端的jsp来写入cookie，会通过http的响应带到客户端。  
