@@ -40,3 +40,5 @@ cookie是http的内容范畴。
 - JavaSE是Java Standard Edtion的缩写，译成中文就是Java标准版，也是Java的核心。  
     无论是JavaEE(Java企业版)还是JavaME(Java微型版)(主要用于嵌入式设备)都是以JavaSE为基础。  
     相当于它就是Java的语法规则。  
+
+- Python:派森是英式，派桑是美式
