@@ -20,4 +20,10 @@ Java Skills
     commit();  
 
 - ArrayList在没有指定泛型类的时候，Add的方法可以添加Object类型，但是AddAll方法就只能添加指定类型的对象了。。。  
-    一个可以添加Object，另一个只能加Colletion指定类型的对象  
+    一个可以添加Object，另一个只能加Colletion指定类型的对象  
+- instance→实例  
+    of→属于  
+    if(duixiang instanceOf Object)
+    {
+        system.out.plantln("true");
+    }
