@@ -41,4 +41,6 @@ cookie是http的内容范畴。
     无论是JavaEE(Java企业版)还是JavaME(Java微型版)(主要用于嵌入式设备)都是以JavaSE为基础。  
     相当于它就是Java的语法规则。  
 
-- Python:派森是英式，派桑是美式
+- Python:派森是英式，派桑是美式  
+
+- 刷新DNS缓存 dos窗口中输入 ipconfig /flushdns
