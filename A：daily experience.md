@@ -14,3 +14,4 @@ Entries are separated by a semicolon
 7. continue跳出本次循环进入下一次循环，break跳出循环且不进入下一次循环，return跳出方法。;
 8.  var num = 0.373333; alert(num.toFixed(1));保留一位小数 JS方法 toFixed(1);  
 9. 可以通过+ — 加号和减号控制Bois面板中的选项  
+10. var nowDate = new Date().Format("yyyy-MM-dd hh:mm:ss");  
