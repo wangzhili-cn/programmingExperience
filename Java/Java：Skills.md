@@ -36,3 +36,7 @@ cookie：游走在客户端与服务端
 cookie是http的内容范畴。  
 如果你想把客户端生成的信息带到服务端，可以借助js写入cookie，发送请求时，请求头就会携带这部分信息给服务端。  
 如果服务端有信息需要传到客户端，可以通过服务端的jsp来写入cookie，会通过http的响应带到客户端。  
+
+- JavaSE是Java Standard Edtion的缩写，译成中文就是Java标准版，也是Java的核心。  
+    无论是JavaEE(Java企业版)还是JavaME(Java微型版)(主要用于嵌入式设备)都是以JavaSE为基础。  
+    相当于它就是Java的语法规则。  
