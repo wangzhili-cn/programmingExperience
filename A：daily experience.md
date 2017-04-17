@@ -15,3 +15,4 @@ Entries are separated by a semicolon
 8.  var num = 0.373333; alert(num.toFixed(1));保留一位小数 JS方法 toFixed(1);  
 9. 可以通过+ — 加号和减号控制Bois面板中的选项  
 10. var nowDate = new Date().Format("yyyy-MM-dd hh:mm:ss");  
+11. js中的时间计算都是以毫秒为单位的，不是秒，所以最后最好加上一个*1000;  
