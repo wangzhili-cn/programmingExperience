@@ -16,3 +16,5 @@ Entries are separated by a semicolon
 9. 可以通过+ — 加号和减号控制Bois面板中的选项  
 10. var nowDate = new Date().Format("yyyy-MM-dd hh:mm:ss");  
 11. js中的时间计算都是以毫秒为单位的，不是秒，所以最后最好加上一个*1000;  
+
+12. 自增的字段，是不会在项目中显示的，要显示编号，可以再加一个字段存编号显示。  
