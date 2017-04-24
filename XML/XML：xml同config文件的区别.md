@@ -2,6 +2,7 @@
 xml同config文件的区别
 ---
 > config文件是xml文件的一个子集，只不过config文件是有系统自定义的一些节点规则，语法为xml。  
+  
 前者:  
 用在web.config或者app.config之类. 
 <appSettings>是系统约定的节点,约定在这个节点下的所有<add />节点会被System.Configuration.ConfigurationManager.AppSetting读到.  
