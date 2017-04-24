@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBUtil {
+	//如果报连接未允许错误，则添加useSSL=false即可解决  
 	private static final String URL = "jdbc:mysql://127.0.0.1:3306/test?useUnicode&amp;characterEncoding=utf-8";
 	private static final String USER = "root";
 	private static final String PASSWORD = "1qaz2wsx";
