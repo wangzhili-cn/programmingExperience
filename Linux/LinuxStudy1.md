@@ -227,3 +227,19 @@ find:遍历搜索，有点慢，卡，但功能强大
      
    $PATH说明：类似于Windows中的环境变量，执行命令的时候都要在path定义的目录中去寻找。  
 所以像ls这样的命令就可以不用加路径（/bin/ls）执行了。  
+
+whereis在哪里  
+whoami是谁  
+whatis干什么  
+
+which 文件名  #搜索命令所在路径及别名  
+  
+[root@localhost ~]# which ls  
+alias ls="ls --color=auto"  #别名  
+        /bin/ls             #路径  
+[root@localhost ~]# which pwd  
+/bin/pwd     #路径  
+  
+whereis 和which 只能找到shell外来的系统命令。都不能找到cd命令，因为cd是shell自带的命令。  
+
+echo $PATH 系统环境变量配置  
