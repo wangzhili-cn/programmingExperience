@@ -11,4 +11,5 @@
   esc键 退出插入模式，并打出:（输入命令）  
   wq (存盘并退出)  
   q! (不存盘直接退出)  
+  [vim文件编辑百度知道](https://jingyan.baidu.com/article/495ba8410ff14d38b30ede01.html)  
 
