@@ -245,6 +245,7 @@ whereis 和which 只能找到shell外来的系统命令。都不能找到cd命�
 echo $PATH 系统环境变量配置  
 
 > find命令  
+
 find搜索（避免大范围的搜索，会非常浪费系统资源，建议不在直接在“/”目录下搜索）  
 格式：find 【搜索范围】【搜索条件】；  
 例：find /home -name 文件名；  
