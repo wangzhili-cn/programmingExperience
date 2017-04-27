@@ -2,6 +2,7 @@
 linux达人养成计划1
 ---
 > linux命令格式  
+
 1.起始符：  
 [root@localhost ~]#  
 root 当前登录用户  
