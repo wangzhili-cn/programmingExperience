@@ -49,3 +49,22 @@ cookie是http的内容范畴。
 1. Java中的length属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性.  
 2. java中的length()方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法.  
 3. java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看!  
+
+> tomcat在linux部署中的manageApp问题  
+
+- 解压安装完后发现访问8080点击manageApp管理报出403错误？  
+    重启之后，还是403.
+查找网上解决办法无果，大部分网上的文章都只提到了在tomcat-users.xml里添加上面的语句，  
+无法解决，通过查阅官方文档，终于找到真正原因所在(Tomat7不需要修改下面这两个文件只有Tomcat7以上才需要修改)。  
+打开webapps下的host-manager和manager，都有一个共同的文件夹META-INF，里面都有context.xml，这个文件的内容是：  
+<Context antiResourceLocking="false" privileged="true" >  
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve"  
+         allow="127.d+.d+.d+|::1|0:0:0:0:0:0:0:1" />  
+</Context>  
+通过查看官方文档，知道，这段代码的作用是限制来访IP的，127.d+.d+.d+|::1|0:0:0:0:0:0:0:1，  
+是正则表达式，表示IPv4和IPv6的本机环回地址，所以这也解释了，为什么我们本机可以访问管理界面，但是其他机器确是403。  
+找到原因了，那么修改一下这里的正则表达式即可，我们修改为所有人都可以访问，那么改成这样就可以：  
+<Context antiResourceLocking="false" privileged="true" >  
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve"  
+         allow="^.*$" />  
+</Context>  
