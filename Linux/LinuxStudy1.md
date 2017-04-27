@@ -177,3 +177,30 @@ linux 是个严谨的操作系统，一级目录都严格规定
 然后输入:q（不保存并退出）或者:wq（保存并退出）即可【注意这里是英文的冒号】  
     1-4-5）删除原文件，软链接不能使用  
     1-4-6）创建软链接，原文件一定要写绝对路径。否则，软链接会到它所在的同一目录去找原文件。  
+
+> linux文件收索命令  
+1. 文件搜索命令locate  
+locate 文件名  
+在后台数据库中按文件名搜索，搜索速度非常快。  
+locate命令所搜索的后台数据库：/var/lib/mlocate 默认一天更新一次  
+当新建一个文件要搜索时，要自己更新数据库 updatedb  
+可以通过locate locate来找到数据库。  
+只能搜索文件。  
+筛选规则在配置文件中，可对其进行修改/etc/updatedb.conf  
+（whereis与which也遵守该规则）  
+  
+Linux中.conf一般为配置文件  
+
+locate [文件名]  
+  在后台数据库中按文件名搜索，搜索速度更快  
+  /var/lib/malocate #locate命令所搜索的后台数据库  
+  updatedb 更新数据库  
+  按照配置文件/etc/updatedb.conf进行搜索，其中：  
+    PRUNE_BIND_MOUNTS="yes" 开启搜索限制  
+    PRUNEFS = 不搜索的文件系统  
+    PRUNENAMES = 不搜索的文件类型  
+    PRUNEPATHS = 不搜索的路径  
+
+locate优点:在后台数据库搜索速度快  
+          缺点:只能进行文件名搜索  
+find:遍历搜索，有点慢，卡，但功能强大  
