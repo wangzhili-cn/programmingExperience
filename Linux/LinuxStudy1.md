@@ -243,3 +243,37 @@ alias ls="ls --color=auto"  #别名
 whereis 和which 只能找到shell外来的系统命令。都不能找到cd命令，因为cd是shell自带的命令。  
 
 echo $PATH 系统环境变量配置  
+
+> find命令  
+find搜索（避免大范围的搜索，会非常浪费系统资源，建议不在直接在“/”目录下搜索）  
+格式：find 【搜索范围】【搜索条件】；  
+例：find /home -name 文件名；  
+注意：find搜索默认是完全匹配。  
+  
+如果需要进行模糊查询，需要添加通配符，通配符有以下3种  
+“*”匹配任意字符，例：find /home -name “*test*”,显示所有名字带test的文件；或例：find /home -name “*”，home目录下的所有文件，包括隐藏文件。  
+“?”匹配任意一个字符，  
+“【】”匹配任意一个中括号内的字符，例：find /home -name “test【12】”，  
+显示test1和test2文件；或find /home -name “【12】*”，显示以1和2开头的文件。  
+组合使用：例：find /home -name “*【12】”，显示所有1和2结尾的文件  
+  
+find 按文件时间来搜索  
+  
+find /home -mtime +10 在home目录下，查找10天前修改的文件  
+find /home -mtime 10 在home目录下，查找10天前当天修改的文件  
+find /home -mtime -10 在home目录下，查找10天内修改的文件  
+atime 文件访问时间  
+ctime 改变文件属性  
+mtime 修改文件内容  
+  
+find搜索  
+find /root -iname test 不区分要搜索的test大小写格式  
+find /root -user root 搜索root目录下的所有属于root用户的文件  
+find /root -nouser 没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。  
+  
+find 目录 -size 文件大小  
+注意：文件大小用小写k和大写M。  
+-a 表示and  
+-o 表示or  
+find /etc -size +20k -a -size -50k -exec ls -lh {} \;  
+-exec {} \; 固定格式，表示直接对前面的搜索结果进行后面的命令处理  
