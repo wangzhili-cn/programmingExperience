@@ -72,3 +72,6 @@ cookie是http的内容范畴。
 > 如何在linux中安装JDK部署tomcat服务器  
   
 [博客连接](http://www.cnblogs.com/hanyinglong/p/5025635.html)  
+
+> 域名映射到ip上是 在 DNS上进行解析的  
+默认访问是访问80端口  
