@@ -64,10 +64,12 @@ cookie是http的内容范畴。
 通过查看官方文档，知道，这段代码的作用是限制来访IP的，127.d+.d+.d+|::1|0:0:0:0:0:0:0:1，  
 是正则表达式，表示IPv4和IPv6的本机环回地址，所以这也解释了，为什么我们本机可以访问管理界面，但是其他机器确是403。  
 找到原因了，那么修改一下这里的正则表达式即可，我们修改为所有人都可以访问，那么改成这样就可以：  
+```XML
 <Context antiResourceLocking="false" privileged="true" >  
   <Valve className="org.apache.catalina.valves.RemoteAddrValve"  
          allow="^.*$" />  
-</Context>  
+</Context>
+```
 
 > 如何在linux中安装JDK部署tomcat服务器  
   
