@@ -27,6 +27,7 @@ service iptables restart
 
 > 解决manageapp的403错误  
   
+在tomcat安装包下面的conf文件下含有一个tomcat-user.xml文件，修改此文件即可，命令为：vim tomcat-users.xml  
 在打开的xml配置文件最后面写入下面这段配置文件之后保存并且退出即可。  
 role rolename="admin-gui"/  
 role rolename="manager-gui"/  
