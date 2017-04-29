@@ -32,6 +32,7 @@ service iptables restart
 <role rolename="manager-gui"/>  
 <user username="tomcat" password="tomcat" roles="manager-gui,admin-gui"/>  
 
+打开webapps下的host-manager和manager，都有一个共同的文件夹META-INF，里面都有context.xml，这个文件的内容  
 
 IPv4和IPv6的本机环回地址，所以这也解释了，为什么我们本机可以访问管理界面，但是其他机器确是403。  
 找到原因了，那么修改一下这里的正则表达式即可，我们修改为所有人都可以访问，那么改成这样就可以：  
