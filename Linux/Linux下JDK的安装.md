@@ -27,3 +27,5 @@ source /etc/profile让profile
 上面所有的步骤完成之后，这时候我们需要检查是否安装成功，输入如下命令，如图所示：  
 a.1 java -version  
 a.2 echo $JAVA_HOME  
+
+可参考博客 http://www.cnblogs.com/hanyinglong/p/5025635.html
