@@ -28,9 +28,9 @@ service iptables restart
 > 解决manageapp的403错误  
   
 在打开的xml配置文件最后面写入下面这段配置文件之后保存并且退出即可。  
-<role rolename="admin-gui"/>  
-<role rolename="manager-gui"/>  
-<user username="tomcat" password="tomcat" roles="manager-gui,admin-gui"/>  
+role rolename="admin-gui"/  
+role rolename="manager-gui"/  
+user username="tomcat" password="tomcat" roles="manager-gui,admin-gui"/  
 
 打开webapps下的host-manager和manager，都有一个共同的文件夹META-INF，里面都有context.xml，这个文件的内容  
 
