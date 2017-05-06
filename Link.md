@@ -3,5 +3,6 @@
 ---  
 
 > [runoob菜鸟教程](http://www.runoob.com/)  
-> [DNS加速静态库](https://www.staticfile.org/)
+> [DNS加速静态库](https://www.staticfile.org/)  
+> [摩斯密码加解密](http://www.bejson.com/enc/morse/)  
 
