@@ -9,7 +9,7 @@ d.2 mv jdk1.8.0_65  javajdk
 d.3 cd javajdk  
 
 jdk已经全部完成安装了，接下来就是更重要的一步：配置环境变量  
-1 vim /etc/profile
+1 vim /etc/profile  
 JAVA_HOME=/usr/local/kencery/javajdk  
 PATH=$JAVA_HOME/bin:$PATH  
 CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar  
