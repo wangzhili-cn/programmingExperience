@@ -19,3 +19,4 @@ Entries are separated by a semicolon
 
 12. 自增的字段，是不会在项目中显示的，要显示编号，可以再加一个字段存编号显示。  
 13. 有用的一个实体工具站 http://www.ofmonkey.com/  
+14. echarts3.0没有树图，如果想实现树形结构图需要使用echarts2.0  
