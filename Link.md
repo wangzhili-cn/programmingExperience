@@ -12,22 +12,4 @@
 > [icon图](www.iconfont.cn)
 > [.net平台CMS建站](http://www.siteserver.cn/)
 > [discuz!论坛](http://www.discuz.net/forum.php)
-
-PPT系列
-微软官方模板：OfficePlus 
-http://www.officeplus.cn
-
-优品PPT：
-http://www.ypppt.com/
-
-第一PPT：
-http://www.1ppt.com/
-
-51PPT模板：
-http://www.51pptmoban.com/
-
-演界网（部分收费）：
-http://www.yanj.cn/
-
-PPTSTORE（高端收费）：
-https://www.pptstore.net/
+> [小说下载ebook](http://www.ebookcn.com)
