@@ -13,3 +13,5 @@
 > [.net平台CMS建站](http://www.siteserver.cn/)  
 > [discuz!论坛](http://www.discuz.net/forum.php)  
 > [小说下载ebook](http://www.ebookcn.com)  
+> [八图网](http://www.8tupian.com/)  
+
