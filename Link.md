@@ -24,7 +24,7 @@
 
 > [小说下载ebook](http://www.ebookcn.com)  
 
-> [八图网](http://www.8tupian.com/)  
+> [八图网-信息加密网站](http://www.8tupian.com/)  
 
 > [美图秀秀](http://xiuxiu.web.meitu.com/main.html)  
 
@@ -33,5 +33,7 @@
 > [PDF转Word神器](https://smallpdf.com/cn/pdf-to-word)  
 
 > [EPUB转PDF神器](https://www.aconvert.com/cn/ebook/epub-to-pdf/)  
+
+> [翻墙网站](https://www.sockscap64.com/forums/)  
 
 
